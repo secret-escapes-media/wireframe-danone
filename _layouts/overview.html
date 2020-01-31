@@ -1,0 +1,74 @@
+---
+layout: default
+
+banner:
+  content: >
+    <div class="container container--no-padding">
+      <div class="text--center">
+        <h1 class="title title--xxl">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+        <div class="space--lg"></div>
+        <div class="width width--lg">
+          <div class="bg-img bg-img--16-9" style="background-image: url('{{site.img}}/img.jpg');">
+            <div class="bg-img__content">
+              <div class="width">
+                <img src="{{site.img}}/icons/play.svg" style="width: 150px;" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+---
+
+{% include page/banner.html %}
+
+<div class="content-spacing section-spacing">
+
+  <div class="container vpad--xl">
+    <div class="width width--xl text--center">
+      <p class="text--xxl">{{site.description}}</p>
+    </div>
+  </div>
+
+  <div class="bg--light">
+    <div class="container">
+      <div class="vpad--xxl">
+        {% assign competition-page = site.html_pages | where: 'id', 'competition' | first %}
+        <div class="row row--6-6 row--gutters-lg row--valign-center">
+          <div class="col">
+            <div class="bg-img bg-img--1-1" style="background-image: url('{{site.img}}/img.jpg');">
+              <a class="bg-img__link" href="{{site.baseurl}}{{item.url}}"></a>
+              <div class="bg-img__bg-overlay"></div>
+            </div>
+          </div>
+          <div class="col">
+            <h2 class="title title--xl">{{competition-page.long-title}}</h2>
+            <p class="text--xxl">{{competition-page.intro | truncatewords: 40}}</p>
+            <div class="space--md"></div>
+            <a href="{{site.baseurl}}{{competition-page.url}}" class="btn btn--lg btn--orange">Enter Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="vpad--xxl">
+      <div class="row row--6-6">
+        {% assign content-pages = site.html_pages | where: 'content-page', 'true' | sort: 'nav-order' %}
+        {% for item in content-pages %}
+          <div class="col">
+            <div class="bg-img bg-img--3-2" style="background-image: url('{{site.img}}/img.jpg');">
+              <a class="bg-img__link" href="{{site.baseurl}}{{item.url}}"></a>
+              <div class="bg-img__bg-overlay"></div>
+              <div class="bg-img__content">
+                <h2 class="title title--lg">{{item.title}}</h2>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</div>

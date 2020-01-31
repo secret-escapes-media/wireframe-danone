@@ -5,17 +5,11 @@
 
   <body class="no-js">
 
-    {% include components/tracking.html %}
+    {% comment %}{% include components/tracking.html %}{% endcomment %}
 
     {% include page/header.html %}
 
-    {% include page/banner.html %}
-
-    <div class="content-spacing section-spacing">
-      {{ content }}
-    </div>
-
-    {% include page/promo-signup.html %}
+    {{ content }}
 
     {% include page/footer.html %}
 

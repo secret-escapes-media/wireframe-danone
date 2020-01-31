@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+{% include page/banner.html %}
+
+<div class="content-spacing section-spacing">
+
+  {{content}}
+
+  {% unless page.id == 'offers' %}
+    {% include page/promo-competition.html %}
+  {% endunless %}
+
+</div>

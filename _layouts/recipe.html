@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<div>
+  <div class="site-header__offset"></div>
+  <div class="site-nav__offset"></div>
+
+  <div class="container content-spacing">
+    <div class="vpad--xxl">
+      <div class="width width--xxl text--center">
+        <div class="title title--xl">{{page.title}}</div>
+        <div class="vpad--md">
+          <div class="bg-img bg-img--16-9" style="background-image: url('{{site.img}}/img.jpg')"></div>
+        </div>
+      </div>
+      <div class="width width--lg text--center">
+        <p class="text--xxl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam ipsa hic doloremque, temporibus animi cum facilis, dicta laborum molestias ullam tempore possimus reprehenderit quis! Repellat facilis aliquam nesciunt consequuntur rem adipisci ratione, eos non voluptate dolores quia quaerat possimus veritatis sunt maxime sint molestiae iure ea voluptatem alias enim dolorum asperiores unde? Error ab laborum, beatae et dicta quam nulla.</p>
+        <p>{{page.stats}}</p>
+      </div>
+      <div class="space--xl"></div>
+      <hr>
+      <div class="space--xl"></div>
+      <div class="row row--6-6">
+        <div class="col col--4">
+          <h2 class="title title--sm">Ingredients</h2>
+          <ul>
+            <li>Lorem ipsum dolor sit amet consectetur.</li>
+            <li>Ipsam ipsa ex suscipit iste aliquid!</li>
+            <li>Adipisci quibusdam repellendus laboriosam quidem alias.</li>
+            <li>Adipisci quae ipsum numquam maiores asperiores!</li>
+            <li>Soluta incidunt veniam culpa fugit rem.</li>
+            <li>Nam laborum sit vel id culpa.</li>
+            <li>Ipsam quia perferendis veniam eaque id.</li>
+            <li>Obcaecati quia quam pariatur doloremque cum?</li>
+          </ul>
+        </div>
+        <div class="col col--8">
+          <h2 class="title title--sm">Directions</h2>
+          <ol>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque amet nulla hic repellendus deleniti aspernatur ipsa non molestias cupiditate accusamus velit cum eius numquam ea nesciunt soluta rerum illo commodi error nihil, nisi nostrum. Nostrum labore iusto obcaecati unde eveniet.</li>
+            <li>Perspiciatis ea nesciunt ullam quidem doloribus earum illum commodi unde! Iure quibusdam error ut amet hic ex iste et! Beatae laboriosam repellat veniam qui temporibus! Possimus dolorum facere a obcaecati accusantium. Odit obcaecati veritatis dicta sint error a. Temporibus, dolores.</li>
+            <li>Suscipit nostrum autem reprehenderit, voluptatem ratione architecto odio beatae quisquam dolores tempore tenetur, omnis impedit maiores aspernatur qui blanditiis similique expedita deleniti dolore amet nihil? Asperiores soluta maiores, tempora eos at porro blanditiis animi quibusdam odit aliquam placeat a voluptatum.</li>
+            <li>Dolorem ipsam a voluptatum impedit accusantium doloremque vel voluptates! Debitis et fugiat repellendus molestias nihil sed iusto. Sed nemo possimus eum harum tempore repudiandae atque fugiat. Neque ipsam facilis totam molestias explicabo natus magni? Nulla architecto maiores sequi necessitatibus repudiandae!</li>
+            <li>Laudantium eum quos voluptatem! Voluptatibus accusamus vero minima alias. Libero labore harum molestias! Blanditiis, at. Ipsam, placeat. Nisi repellat optio facilis quasi atque dignissimos explicabo perferendis quisquam hic? Ea quibusdam repellat corporis dolore odit mollitia in accusamus architecto. Commodi, nulla!</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg--light">
+  <div class="container vpad--xxl content-spacing">
+    <div class="title title--md text--center">See more recipes</div>
+    <div class="space--lg"></div>
+    <div class="row row--4-4-4">
+      {% assign site-recipes = site.html_pages | where: 'layout', 'recipe' | sort: 'nav-order' %}
+        {% for item in site-recipes %}
+          {% unless item.id == page.id %}
+            <div class="col">
+              <div class="bg-img bg-img--3-2" style="background-image: url('{{site.img}}/img.jpg')">
+                <a class="bg-img__link" href="{{site.baseurl}}{{item.url}}"></a>
+                <div class="bg-img__bg-overlay"></div>
+              </div>
+              <div class="bg--white boxpad--lg">
+                <div class="title title--xxs"><a href="{{site.baseurl}}{{item.url}}">{{item.title}}</a></div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quia ex doloremque dolorum deleniti vel maiores laudantium aliquam, odio quod labore, nostrum nam, explicabo a. Eaque sed neque hic repellendus...</p>
+                <div class="space--sm"></div>
+                <div class="row row--valign-center">
+                  <div class="col col--6">
+                    <p>{{item.stats}}</p>
+                  </div>
+                  <div class="col col--6">
+                    <div class="text--right">
+                      <a href="{{site.baseurl}}{{item.url}}" class="btn btn--sm btn--outline btn--outline-orange">See Recipe</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endunless %}
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% include page/promo-competition.html %}

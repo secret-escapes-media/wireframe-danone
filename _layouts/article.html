@@ -1,0 +1,69 @@
+---
+layout: default
+---
+
+<div class="bg--light">
+  <div class="site-header__offset"></div>
+  <div class="site-nav__offset"></div>
+
+  <div class="container content-spacing">
+    <div class="vpad--xxl">
+      <div class="width width--xxl">
+        <div class="title title--xl">{{page.title}}</div>
+        <div class="vpad--md">
+          <div class="bg-img bg-img--16-9" style="background-image: url('{{site.img}}/img.jpg')"></div>
+        </div>
+      </div>
+      <div class="width width--lg">
+        <p class="text--xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam cum repellendus blanditiis consequuntur obcaecati? Minima asperiores voluptatibus impedit vitae molestias. Ipsum id natus recusandae blanditiis ratione quibusdam earum consequuntur quod fugiat, facere dolores sit temporibus nobis aspernatur labore nisi? Dolor libero dicta adipisci modi est dolores, consectetur eos sapiente. Porro hic nobis iure nesciunt pariatur mollitia quis eos vel eaque.</p>
+        <p class="text--xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, debitis. Consequuntur odit ut distinctio optio cum nemo quisquam nam dignissimos, dolorum minima, fugit, asperiores deleniti natus tempora dolores nihil saepe obcaecati molestiae quo earum nesciunt ducimus a. Dignissimos atque, quidem qui accusantium nihil at quia odit blanditiis nemo dolores sed amet assumenda laborum quam mollitia ipsa, dolorem, voluptate necessitatibus fuga quod aliquam maxime dolore iusto cumque. Cupiditate nisi, ipsam error, assumenda voluptates aperiam accusantium doloremque quia mollitia exercitationem facilis ipsum.</p>
+        <p class="text--xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, ab hic magnam impedit magni qui ratione, nihil repudiandae recusandae itaque consectetur, earum harum sed molestias vero quam sint atque fuga praesentium ex? Officia consequatur quisquam voluptatem reprehenderit a earum repellendus!</p>
+        <p class="text--xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aspernatur ratione asperiores. Pariatur quod itaque temporibus eligendi laborum facilis debitis quaerat sequi saepe commodi cupiditate sunt labore et vitae fugiat, optio tenetur sapiente? Animi, delectus. Dolore minus rerum sit non.</p>
+      </div>
+      <div class="width width--xxl">
+        <div class="vpad--md">
+          <div class="row row--6-6">
+            <div class="col">
+              <div class="bg-img bg-img--4-3" style="background-image: url('{{site.img}}/img.jpg')"></div>
+            </div>
+            <div class="col">
+              <div class="bg-img bg-img--4-3" style="background-image: url('{{site.img}}/img.jpg')"></div>
+            </div>
+          </div>
+        </div>
+        <div class="width width--lg">
+          <p class="text--xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, odio dolores similique corrupti iusto vel nisi sequi et asperiores placeat natus, voluptates doloremque sed aspernatur in inventore minima aliquam cumque temporibus dolorum sint tempore suscipit. Distinctio architecto maxime fugiat dolorem nulla deleniti? Ipsa sequi laudantium eveniet? Facere debitis aspernatur distinctio, consequuntur cumque velit quidem voluptas possimus quo itaque numquam temporibus. Id fuga tenetur provident, obcaecati repellendus vitae sunt nostrum neque voluptatum nisi similique earum molestiae cum dolore! Laboriosam illum qui culpa consequuntur cupiditate, temporibus tempore id delectus, quae ad repellat sapiente! Eveniet, consequatur laboriosam laborum illum impedit accusamus. Cumque exercitationem reprehenderit odit, nulla error ab. Aspernatur pariatur facere debitis reiciendis dicta? Maxime nihil consectetur quod? Nam in officiis pariatur odio neque. Dolorum, voluptatibus. Perspiciatis ipsa possimus eveniet ipsum amet dolores modi magnam. At tempora soluta qui beatae nisi laborum aut.</p>
+          <p class="text--xl">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus corrupti magni ratione, quam voluptatibus maiores repudiandae assumenda facere placeat fugiat totam animi ex iure eveniet? Quia repellendus obcaecati ullam quasi, officia nisi maxime totam similique consequatur! Alias doloribus perspiciatis, non, distinctio commodi molestias, consequatur cumque hic saepe magni modi optio libero. Vitae odit placeat quo excepturi explicabo ipsum deleniti molestiae?</p>
+          <p class="text--xl">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur omnis iure quis natus impedit sapiente, aliquid quae ea, possimus assumenda praesentium enim illum voluptates modi asperiores tenetur! Quisquam architecto laboriosam sint voluptas eos porro, dolorem amet quas ipsam maxime animi. Voluptatem eos magnam blanditiis, praesentium deserunt excepturi necessitatibus provident non dolore quae dolorum molestias exercitationem. Ab nemo cupiditate accusamus recusandae!</p>
+          <p class="text--xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis totam fuga, ipsa tenetur alias quasi ratione explicabo, repellat quae iure dolore laborum aspernatur reprehenderit porro, dolor consequuntur ad eaque! Fuga reiciendis deserunt impedit necessitatibus asperiores exercitationem quos, dolorem numquam, dicta consequuntur tempora illum suscipit nisi, dolores molestiae voluptas illo harum? Earum exercitationem minima ad officia et ducimus quibusdam beatae quo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container vpad--xxl">
+  <div class="title title--md text--center">Read more articles</div>
+  <div class="space--lg"></div>
+  <div class="row row--4-4-4">
+    {% assign site-articles = site.html_pages | where: 'layout', 'article' | sort: 'nav-order' %}
+      {% for item in site-articles %}
+        {% unless item.id == page.id %}
+          <div class="col">
+            <div class="bg-img bg-img--4-3" style="background-image: url('{{site.img}}/img.jpg')">
+              <a class="bg-img__link" href="{{site.baseurl}}{{item.url}}"></a>
+              <div class="bg-img__bg-overlay"></div>
+            </div>
+            <div class="space--sm"></div>
+            <div class="title title--xs"><a href="{{site.baseurl}}{{item.url}}">{{item.title}}</a></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quia ex doloremque dolorum deleniti vel maiores laudantium aliquam, odio quod labore, nostrum nam, explicabo a. Eaque sed neque hic repellendus...</p>
+            <div class="space--sm"></div>
+            <a href="{{site.baseurl}}{{item.url}}" class="btn btn--sm btn--outline btn--outline-orange">Read More</a>
+            <div class="space--sm"></div>
+          </div>
+        {% endunless %}
+      {% endfor %}
+  </div>
+</div>
+
+{% include page/promo-competition.html %}
